@@ -1,0 +1,148 @@
+//Write a program to print the binary representation of a number using loops.
+#include<stdio.h>
+int main()
+{
+int n,i,b[100];
+scanf("%d",&n);
+while(n>0){
+b[i]=n%2;
+n=n/2;
+i++;
+}
+for(int j=i-1;j>=0;j--){
+printf("%d",b[j]);
+}
+return 0;
+}
+//Write a program to count the number of vowels and consonants in a string using pointers.
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+int vowels,consonants;
+char string[100];
+char *ptr;
+printf("Enter the string:");
+fgets(string,sizeof(string),stdin);
+ptr = string;
+while(*ptr){
+char ch=tolower(*ptr);
+if(isalpha(ch)){
+if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+vowels++;
+}else{
+consonants++;
+}
+}
+*ptr++
+}
+printf("\nNo of vowels:%d",vowels);
+printf("\nNo of consonants:%d",consonants);
+return 0;
+}
+//Write separate functions for addition, subtraction, multiplication, and division. Call thesefunctions from a menu-driven program.
+#include<stdio.h>
+void  add(float,float);
+void sub(float,float);
+void divi(float,float);
+void mult(float,float);
+int main()
+{
+    float a,b;
+    char o;
+    printf("Enter teh operator(+,-,/,*):");
+    scanf("%c",&o);
+    printf("Enter the two operants:");
+    scanf("%f %f",&a,&b);
+  switch(o){
+      case '+':
+      add(a,b);
+      break;
+      case '-':
+      sub(a,b);
+      break;
+      case '*':
+      mult(a,b);
+      break;
+      case '/':
+      divi(a,b);
+      break;
+      default:
+      printf("!!Enter a valid operator!!");
+  }
+    return 0;
+}
+void  add(float x,float y){
+    printf("%.2f",x+y);
+ 
+}
+void sub(float x,float y){
+    printf("%.2f",x-y);
+}
+void divi(float x,float y){
+    if(y!=0)
+    {printf("%.2f",x/y);
+    }else{
+        printf("Division with zero is undifined");
+    }
+}
+void mult(float x,float y){
+    printf("%.2f",x*y);
+}
+//Write a program to print a diamond-shaped pattern using loops.
+#include<stdio.h>
+int main()
+{
+int n;
+printf("Enter number of rows:");
+scanf("%d",&n);
+for(int i=0;i<n;i++){
+for(int j=0;j<n-i-1;j++);
+{
+printf(" ");
+}
+for (int j = 0; j < 2 * i + 1; j++) { 
+printf("*");
+}
+printf("\n");
+}
+for (int i = n - 2; i >= 0; i--) {
+for (int j = 0; j < n - i - 1; j++) {
+printf(" ");
+}
+for (int j = 0; j < 2 * i + 1; j++) {
+printf("*");
+} 
+printf("\n");
+}
+return 0;
+}
+//Write a program to find the length of a given string using pointers.
+#include<stdio.h>
+int main(){
+char str[100];
+int length=0;
+printf("Enter the string:");
+fgets(str,sizeof(str),stdin);
+char *ptr=str;
+while(*ptr!='\0'){
+length ++;
+ptr ++;
+}
+printf("%d",length);
+return 0;
+}
+//Write a function to calculate the GCD (Greatest Common Divisor) of two numbers using recursion.
+#include <stdio.h>
+int gcd(int x, int y) {
+if (y == 0) {
+return x;
+}
+return gcd(y, x % y);
+}
+int main() {
+int a=56,b=98;
+printf(" GCD is %d\n", gcd(a, b));
+return 0;
+}
+
