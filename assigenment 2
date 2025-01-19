@@ -1,0 +1,138 @@
+//Create a structure called &quot;Student&quot; with members name, age, and total marks. Write C program to input data for two students, display their information, and find theaverage of total marks.
+#include<stdio.h>
+struct Student{
+char name[100];
+int age;
+int marks;
+};
+int main()
+{
+struct Student s1,s2;
+printf("Enter the name of first student:");
+scanf("%s",s1.name);
+printf("Enter the age of student:");
+scanf("%d",&s1.age);
+printf("Enter the marks :");
+scanf("%d",&s1.marks);
+printf("Enter the name of second student:");
+scanf("%s",s2.name);
+printf("Enter the age of student:");
+scanf("%d",&s2.age);
+printf("Enter the marks :");
+scanf("%d",&s2.marks);
+printf("Details of both students");
+printf("\n1) ");
+printf("Name:%s",s1.name);
+printf("\n   Age:%d",s1.age);
+printf("\n   marks:%d",s1.marks);
+printf("2) ");
+printf("Name:%s",s2.name);
+printf("\n   Age:%d",s2.age);
+printf("\n   marks:%d",s2.marks);
+int sum=0;
+sum=s1.marks+s2.marks;
+float avg;
+avg=sum/2;
+printf("\nAverage of marks:%.2f",avg);
+return 0;
+}
+//Design a structure named &quot;Car&quot; to store details like car ID, model, and rental rate per day. Write a C program to input data for three cars, calculate the total rental cost for aspecified number of days, and display the results.
+#include<stdio.h>
+struct car{
+int id;
+char model[100];
+int rent;
+};
+int main()
+{
+struct car c1,c2,c3;
+int days;
+printf("Enter the car id you want :");
+scanf("%d",&c1.id);
+printf("Enter the car maodel:");
+scanf("%s",c1.model);
+printf("Enter the rent of the car:");
+scanf("%d",&c1.rent);
+printf("Enter the car id you want :");
+scanf("%d",&c2.id);
+printf("Enter the car maodel:");
+scanf("%s",c2.model);
+printf("Enter the rent of the car:");
+scanf("%d",&c2.rent);
+printf("Enter the car id you want :");
+scanf("%d",&c3.id);
+printf("Enter the car maodel:");
+scanf("%s",c3.model);
+printf("Enter the rent of the car:");
+scanf("%d",&c3.rent);
+printf("Enter the number of days to take car rent :");
+scanf("%d",&days);
+float cost1,cost2,cost3;
+cost1=c1.rent*days;
+cost2=c2.rent*days;
+cost3=c3.rent*days;
+printf("\nRent of three  cars :\n1)%.2f \n2)%.2f \n3)%.2f",cost1,cost2,cost3);
+return 0;
+}
+//Create a structure named Complex to represent a complex number with real and imaginary parts. Write a C program to add and multiply two complex numbers.
+#include<stdio.h>
+struct complex{
+int real;
+int imag;
+};
+int main()
+{
+struct complex n1,n2;
+int a,b,c,d;
+printf("Enter the real part of 1st complex number:");
+scanf("%d",&n1.real);
+printf("Enter the Imaginary part of 1st complex number:");
+scanf("%d",&n1.imag);
+printf("Enter the real part of 2nd complex number:");
+scanf("%d",&n2.real);
+printf("Enter the Imaginary part of 2nd complex number:");
+scanf("%d",&n2.imag);
+a=n1.real+n2.real;
+b=n1.imag+n2.imag;
+c=n1.real*n2.real-n1.imag*n2.imag;
+d=n1.real*n2.imag+n1.imag*n2.real;
+printf("Addition of complex numbers: %d + %di",a,b);
+printf("\nMultiplication of complex: %d + %di",c,d);
+return 0;
+}
+//Write a program in C to store and print the information of N employees using dynamic memory allocation and structures.
+#include <stdio.h>
+#include <stdlib.h>
+struct Employee {
+char name[50];
+int age;
+float salary;
+};
+int main() {
+int N;
+struct Employee *employees;
+printf("Enter the number of employees: ");
+scanf("%d", &N);
+employees = (struct Employee *)malloc(N * sizeof(struct Employee));
+if (employees == NULL) {
+printf("Memory allocation failed!\n");
+return 1;
+}
+for (int i = 0; i < N; i++) {
+printf("Enter the name of employee %d: ", i + 1);
+scanf("%s", employees[i].name);
+printf("Enter the age of employee %d: ", i + 1);
+scanf("%d", &employees[i].age);
+printf("Enter the salary of employee %d: ", i + 1);
+scanf("%f", &employees[i].salary);
+}
+printf("\nEmployee Information:\n");
+for (int i = 0; i < N; i++) {
+printf("Employee %d:\n", i + 1);
+printf("Name: %s\n", employees[i].name);
+printf("Age: %d\n", employees[i].age);
+printf("Salary: %.2f\n", employees[i].salary);
+}
+free(employees);
+return 0;
+}
